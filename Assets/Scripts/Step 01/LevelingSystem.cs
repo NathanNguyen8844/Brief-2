@@ -68,7 +68,6 @@ public class LevelingSystem : MonoBehaviour
         currentLevel = currentLevel + 1;
         currentXp = currentXp - currentXPThreshold;
         currentXPThreshold = currentLevel * 100;
-        TestImplementation();
     }
 
     #region No Mods Required.
