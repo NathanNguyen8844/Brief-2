@@ -33,6 +33,12 @@ public class StatsSystem : MonoBehaviour
     /// Step 02: Called in the Start() of Characters.cs
     /// Step 03: Called in the Start() of Characters.cs
     /// </summary>
+
+    void Start()
+    {
+        TestImplementation();
+    }
+    
     public void GeneratePhysicalStatsStats()
     {
         // Let's set up agility, intelligence and strength to some default Random values.
@@ -80,7 +86,7 @@ public class StatsSystem : MonoBehaviour
     public void ChangeHealth(float amount)
     {
         // We probably want to change our current health based on the amount coming in.
-
+        
         // currently we are just automatically removing our player...but we probably only want to do that if there is a character and their health is less than 0.
         if(character != null)
         {
