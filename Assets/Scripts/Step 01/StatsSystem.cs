@@ -36,6 +36,9 @@ public class StatsSystem : MonoBehaviour
     public void GeneratePhysicalStatsStats()
     {
         // Let's set up agility, intelligence and strength to some default Random values.
+        strength = Random.Range(0, 10);
+        intelligence = Random.Range(0, 10);
+        agility = Random.Range(0, 10);
     }
 
     /// <summary>
@@ -59,11 +62,13 @@ public class StatsSystem : MonoBehaviour
         // now that we have some stats and our multiplier values let's calculate our style, luck and ryhtmn based on these values, hint your going to need to convert ints to floats, then floats to ints.
 
         // style should be based off our strength and be converted at a rate of 1 : 1.
+        style = (int) (((float) strength) * strengthMultiplier);
 
         // luck should be based off our intelligence and be converted at a rate of 1 : 1.5f
+        luck = (int) (((float) intelligence) * intelligenceMultiplier);
 
         // rhythm should be based off our agility and be converted at a rate of 1 : 0.5.
-
+        rhythm = (int) (((float) agility) * agilityMultiplier);
     }
 
     /// <summary>

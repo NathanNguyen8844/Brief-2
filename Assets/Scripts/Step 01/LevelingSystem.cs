@@ -27,11 +27,11 @@ public class LevelingSystem : MonoBehaviour
     public void SetDefaultValues()
     {
         // set our current level to 1
-
+        currentLevel = 1;
         // set our current XP to zero
-
+        currentXp = 0;
         // set our current XP Threshold to be our level multiplied by our 100.
-
+        currentXPThreshold = currentLevel * 100;
     }
 
     /// <summary>
@@ -41,13 +41,19 @@ public class LevelingSystem : MonoBehaviour
     /// Step 02: ideally called after we declar a winner of a fight, should probs give them some xp.
     /// Step 03: ideally called after we declar a winner of a fight, should probs give them some xp.
     /// </summary>
+    
     public void AddXP(int xpGained)
     {
         // We want to be able to add on the xpGained onto our currentXp.
+        currentXp = xpGained + currentXp;
 
         // We probably want to check to see if we've gained enough xp to trigger a level up to occur.
-
         // if we do then let's call our level up function.
+        while (currentXp >= currentXPThreshold)
+        {
+            LevelUp();
+        }
+
     }
 
     /// <summary>
@@ -58,7 +64,11 @@ public class LevelingSystem : MonoBehaviour
     /// </summary>
     private void LevelUp()
     {
-        // So let's increase our current level, but let's also recalculate our XP threshold to take into account the new level we've just gained. 
+        // So let's increase our current level, but let's also recalculate our XP threshold to take into account the new level we've just gained.
+        currentLevel = currentLevel + 1;
+        currentXp = currentXp - currentXPThreshold;
+        currentXPThreshold = currentLevel * 100;
+        TestImplementation();
     }
 
     #region No Mods Required.

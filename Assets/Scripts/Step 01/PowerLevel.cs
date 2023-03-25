@@ -44,6 +44,7 @@ public class PowerLevel : MonoBehaviour
 
         // Then let's then do a fraction of my power level and the overall power level.
         
+
         // This will give us a decimal number, i.e. 3/4 will give us 0.75 we probably want to turn that into the percentage value.
 
         return 0; // Instead of returning 0 here we probably want to return our percentage chance to win.
