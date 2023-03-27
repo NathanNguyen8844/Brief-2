@@ -18,10 +18,10 @@ public class LevelingSystem : MonoBehaviour
 
     public int currentXPThreshold = 10; // The amount of xp required to level up.
 
-    void Start()
+    /*void Start()
     {
         TestImplementation();
-    }
+    }*/
 
     /// <summary>
     /// sets our script to default values

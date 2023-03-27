@@ -19,10 +19,10 @@ public class PowerLevel : MonoBehaviour
     /// </summary>
     /// <returns></returns>
 
-    void Start()
+    /* void Start()
     {
         TestImplementation();
-    }
+    } */
 
     public int ReturnMyDancePowerLevel()
     {

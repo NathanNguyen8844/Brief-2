@@ -34,10 +34,10 @@ public class StatsSystem : MonoBehaviour
     /// Step 03: Called in the Start() of Characters.cs
     /// </summary>
 
-    void Start()
+    /*void Start()
     {
         TestImplementation();
-    }
+    }*/
     
     public void GeneratePhysicalStatsStats()
     {
