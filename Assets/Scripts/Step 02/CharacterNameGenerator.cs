@@ -16,7 +16,7 @@ public class CharacterNameGenerator : MonoBehaviour
     [Header("Possible last names")]
     private List<string> lastNames = new List<string>(); // a list of all possible last names for us to use.
     [Header("Possible nicknames")]
-    private List<string> nicknames = new List<string>(); // a list of all possible nick names for us to use.
+    private List<string> nickNames = new List<string>(); // a list of all possible nick names for us to use.
 
 
     private void Awake()
@@ -32,7 +32,26 @@ public class CharacterNameGenerator : MonoBehaviour
     /// </summary>
     public void CreateNames()
     {
-        // So here we would ideally want to be able to add some names to our first names, last names and nick names lists.
+        // adding names to a list.
+        firstNames.Add("John");
+        firstNames.Add("Jane");
+        firstNames.Add("Dwayne");
+        firstNames.Add("Jack");
+        firstNames.Add("Bob");
+
+        // adding names to last name
+        lastNames.Add("Nguyen");
+        lastNames.Add("Smith");
+        lastNames.Add("Doe");
+        lastNames.Add("Adams");
+        lastNames.Add("Allen");
+
+        //adding names to wrestlers
+        nickNames.Add("The Rock");
+        nickNames.Add("The Hulk");
+        nickNames.Add("The Smasher");
+        nickNames.Add("The Brawler");
+        nickNames.Add("The Legend");
 
     }
 
