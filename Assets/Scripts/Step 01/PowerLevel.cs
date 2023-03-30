@@ -24,12 +24,16 @@ public class PowerLevel : MonoBehaviour
         TestImplementation();
     } */
 
+    public int myLuck;
+    public int myStyle;
+    public int myRhythm;
+
     public int ReturnMyDancePowerLevel()
     {
         // let's set our player power levels, using an algorithm, the simpliest would be luck + style + rhythm
-        int myLuck = myStats.luck;
-        int myStyle = myStats.style;
-        int myRhythm = myStats.rhythm;
+        myLuck = myStats.luck;
+        myStyle = myStats.style;
+        myRhythm = myStats.rhythm;
 
         return myLuck + myStyle + myRhythm; // instead of returning 0 we probably want to return our current power level
     }

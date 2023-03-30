@@ -86,9 +86,10 @@ public class StatsSystem : MonoBehaviour
     public void ChangeHealth(float amount)
     {
         // We probably want to change our current health based on the amount coming in.
+        playerHealth = playerHealth - amount;
         
         // currently we are just automatically removing our player...but we probably only want to do that if there is a character and their health is less than 0.
-        if(character != null)
+        if(playerHealth <= 0)
         {
             character.RemoveFromTeam();
         }
@@ -105,6 +106,7 @@ public class StatsSystem : MonoBehaviour
         // we've been granted some more points to increase our stats by.
         // let's share these points somewhat evenly or based on some formula to increase our current physical stats
         // then let's recalculate our dancing stats again to process and update the new values.
+        
 
     }
 
