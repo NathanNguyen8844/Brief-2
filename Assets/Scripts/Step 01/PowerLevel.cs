@@ -22,7 +22,7 @@ public class PowerLevel : MonoBehaviour
     /*void Start()
     {
         TestImplementation();
-    } */
+    }*/
 
     public int myLuck;
     public int myStyle;

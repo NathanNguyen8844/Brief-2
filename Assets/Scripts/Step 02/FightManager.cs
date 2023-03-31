@@ -28,12 +28,29 @@ public class FightManager : MonoBehaviour
         int playerOnePowerLevel = teamACharacter.myPowerSystem.ReturnMyDancePowerLevel();
         int playerTwoPowerLevel = teamBCharacter.myPowerSystem.ReturnMyDancePowerLevel();
 
+        //Debug.Log(playerOnePowerLevel);
+        //Debug.Log(playerTwoPowerLevel);
 
         // We should probably determine here who has won, and who has lost by comparing their power levels.
-        // we should also do some damage or heal the appropriate characters.
-        // we could also give them some XP if we want to. 
-        // so we have the character class, which means any variables,references and functions we can access.
+        string checkWinner;
+        if (playerOnePowerLevel > playerTwoPowerLevel) {
+            checkWinner = "PlayerOne";
+        } else if (playerTwoPowerLevel > playerOnePowerLevel) {
+            checkWinner = "PlayerTwo";
+        }
 
+        // we should also do some damage or heal the appropriate characters.
+        if (checkWinner == "PlayerOne") {
+            teamACharacter.myPowerSystem.ChangeHealth(0.2f);
+        } else if (checkWinner == "PlayerTwo") {
+            teamBCharacter.myPowerSystem.ChangeHealth(0.2f);
+        } else {
+            teamACharacter.myPowerSystem.ChangeHealth(0.1f);
+            teamBCharacter.myPowerSystem.ChangeHealth(0.1f);
+        }
+
+        // we could also give them some XP if we want to.
+        // so we have the character class, which means any variables,references and functions we can access.
         // By default it will automatically be a draw.
         string battleMessage = teamACharacter.charName.GetFullCharacterName() + " " + teamBCharacter.charName.GetFullCharacterName() + " fight is a draw";
         // Logs out the message to our console         
