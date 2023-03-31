@@ -20,7 +20,6 @@ public class CharacterNameGenerator : MonoBehaviour
 
     public CharacterName character;
     
-
     private void Awake()
     {
         // call the create names function
@@ -70,9 +69,9 @@ public class CharacterNameGenerator : MonoBehaviour
         character.lastName = lastNames[Random.Range(0,lastNames.Count)];
         character.nickName = nickNames[Random.Range(0,nickNames.Count)];
 
-        Debug.Log(character.firstName);
+        /*Debug.Log(character.firstName);
         Debug.Log(character.lastName);
-        Debug.Log(character.nickName);
+        Debug.Log(character.nickName);*/
     }
 
     /// <summary>
@@ -86,7 +85,7 @@ public class CharacterNameGenerator : MonoBehaviour
         // so here we have a list of character names coming in.
         // we should probably loop over that list of charcter names, and then for each chacter set thei first, last and nickname a random one from our lists
         // if you want to get fancy you could use another function within this script to help out here.
-
+        
 
     }
 }
