@@ -43,8 +43,10 @@ public class FightManager : MonoBehaviour
 
         // we should also do some damage or heal the appropriate characters.
         if (checkWinner == "PlayerOne") {
+            teamACharacter.myLevelSystem.AddXP(100);
             teamBCharacter.myStatsSystem.ChangeHealth(0.2f);
         } else if (checkWinner == "PlayerTwo") {
+            teamBCharacter.myLevelSystem.AddXP(100);
             teamACharacter.myStatsSystem.ChangeHealth(0.2f);
         } else {
             teamACharacter.myStatsSystem.ChangeHealth(0.1f);

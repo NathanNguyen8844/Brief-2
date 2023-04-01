@@ -73,6 +73,7 @@ public class LevelingSystem : MonoBehaviour
         currentLevel = currentLevel + 1;
         currentXp = currentXp - currentXPThreshold;
         currentXPThreshold = currentLevel * 100;
+        myStatSystem.DistributePhysicalStatsOnLevelUp(5);
     }
 
     #region No Mods Required.
