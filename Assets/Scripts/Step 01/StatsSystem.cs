@@ -42,9 +42,9 @@ public class StatsSystem : MonoBehaviour
     public void GeneratePhysicalStatsStats()
     {
         // Let's set up agility, intelligence and strength to some default Random values.
-        strength = Random.Range(0, 10);
-        intelligence = Random.Range(0, 10);
-        agility = Random.Range(0, 10);
+        strength = Random.Range(1, 10);
+        intelligence = Random.Range(1, 10);
+        agility = Random.Range(1, 10);
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ public class StatsSystem : MonoBehaviour
         float intelligenceMultiplier = 1.5f;
 
         // Debug out our current multiplier values.
-        Debug.Log("agilMulti = " + agilityMultiplier + " strMulti = " + strengthMultiplier + " intelMulti = " + intelligenceMultiplier);
+        //Debug.Log("agilMulti = " + agilityMultiplier + " strMulti = " + strengthMultiplier + " intelMulti = " + intelligenceMultiplier);
 
         // now that we have some stats and our multiplier values let's calculate our style, luck and ryhtmn based on these values, hint your going to need to convert ints to floats, then floats to ints.
 
@@ -106,8 +106,19 @@ public class StatsSystem : MonoBehaviour
         // we've been granted some more points to increase our stats by.
         // let's share these points somewhat evenly or based on some formula to increase our current physical stats
         // then let's recalculate our dancing stats again to process and update the new values.
-        
+        int temp;
 
+        temp = Random.Range(0, PointsPool + 1);
+        PointsPool = PointsPool - temp;
+        strength = strength + temp;
+
+        temp = Random.Range(0, PointsPool + 1);
+        PointsPool = PointsPool - temp;
+        agility = agility + temp;
+
+        intelligence = intelligence + PointsPool;
+
+        CalculateDancingStats();
     }
 
     #region No Mods Required
