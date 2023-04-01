@@ -37,6 +37,7 @@ public class DanceTeam : MonoBehaviour
         for (int i = 0; i < 0; i++)
         {
             // so here we want to be able to loop over all of our character spawn points.
+            
 
             // for each spawn point, we want to use our Instantiate(Gameobject, Vector3, Quaternion); and pass in our dancer prefab, as well as the position and rotation of the spawn point
             // Once that does occur, we should store what was spawned into a gameobject for use later on.

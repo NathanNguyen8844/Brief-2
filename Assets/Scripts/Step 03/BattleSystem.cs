@@ -29,7 +29,6 @@ public class BattleSystem : MonoBehaviour
         {
             Debug.Log("DoRound called, but there are no dancers on either team.");
             // This will be called if there are 0 dancers on both teams.
-
         }
         else if (teamA.activeDancers.Count > 0 && teamB.activeDancers.Count > 0)
         {
