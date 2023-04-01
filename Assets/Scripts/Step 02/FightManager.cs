@@ -43,9 +43,9 @@ public class FightManager : MonoBehaviour
 
         // we should also do some damage or heal the appropriate characters.
         if (checkWinner == "PlayerOne") {
-            teamACharacter.myStatsSystem.ChangeHealth(0.2f);
-        } else if (checkWinner == "PlayerTwo") {
             teamBCharacter.myStatsSystem.ChangeHealth(0.2f);
+        } else if (checkWinner == "PlayerTwo") {
+            teamACharacter.myStatsSystem.ChangeHealth(0.2f);
         } else {
             teamACharacter.myStatsSystem.ChangeHealth(0.1f);
             teamBCharacter.myStatsSystem.ChangeHealth(0.1f);
@@ -56,20 +56,35 @@ public class FightManager : MonoBehaviour
         // By default it will automatically be a draw.
 
         if (checkWinner == "PlayerOne") {
-            battleMessage = teamACharacter.charName.GetFullCharacterName() + " " + teamBCharacter.charName.GetFullCharacterName() + "," + teamBCharacter.charName.GetFullCharacterName() + " wins!";
+            battleMessage = teamACharacter.charName.GetFullCharacterName() + " " + teamBCharacter.charName.GetFullCharacterName() + ", " + teamACharacter.charName.GetFullCharacterName() + " wins!";
+            BattleLog.Log(battleMessage, drawCol);
+            BattleLog.Log("team A wins", teamAColour);
+            BattleLog.Log("team B loses", teamBColour);
         } else if (checkWinner == "PlayerTwo") {
-            battleMessage = teamACharacter.charName.GetFullCharacterName() + " " + teamBCharacter.charName.GetFullCharacterName() + "," + teamACharacter.charName.GetFullCharacterName() + " wins!";
+            battleMessage = teamACharacter.charName.GetFullCharacterName() + " " + teamBCharacter.charName.GetFullCharacterName() + ", " + teamBCharacter.charName.GetFullCharacterName() + " wins!";
+            BattleLog.Log(battleMessage, drawCol);
+            BattleLog.Log("team A loses", teamAColour);
+            BattleLog.Log("team B wins", teamBColour);
         } else {
             battleMessage = teamACharacter.charName.GetFullCharacterName() + " " + teamBCharacter.charName.GetFullCharacterName() + " fight is a draw";
+            BattleLog.Log(battleMessage, drawCol);
+            BattleLog.Log("team A draw", teamAColour);
+            BattleLog.Log("team B draw", teamBColour);
         }
         
         // Logs out the message to our console         
-        BattleLog.Log(battleMessage, drawCol);
+        /*BattleLog.Log(battleMessage, drawCol);
         BattleLog.Log("team A draw", teamAColour);
-        BattleLog.Log("team B draw", teamBColour);
+        BattleLog.Log("team B draw", teamBColour);*/
 
         // here we are just telling the system who has won, and who has lost; for any other result other than a draw we should probably pass in false.
-        FightCompleted(teamBCharacter, teamACharacter, true);
+        if (checkWinner == "PlayerOne") {
+            FightCompleted(teamACharacter, teamBCharacter, false);
+        } else if (checkWinner == "PlayerTwo") {
+            FightCompleted(teamBCharacter, teamACharacter, false);
+        } else {
+            FightCompleted(teamBCharacter, teamACharacter, true);
+        }
     }
 
 
