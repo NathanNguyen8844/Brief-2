@@ -67,7 +67,7 @@ public class CharacterNameGenerator : MonoBehaviour
         // So here rather than each character being called Blanky Blank Blank, we probably want it to be a random first,last and nickname
         character.firstName = firstNames[Random.Range(0,firstNames.Count)];
         character.lastName = lastNames[Random.Range(0,lastNames.Count)];
-        character.nickName = nickNames[Random.Range(0,nickNames.Count)];
+        character.nickName = nickNames[Random.Range(0,nickNames.Count)];   
 
         /*Debug.Log(character.firstName);
         Debug.Log(character.lastName);
