@@ -34,14 +34,13 @@ public class DanceTeam : MonoBehaviour
     /// <param name="dancerPrefab"></param>
     public void SpawnTeam(GameObject dancerPrefab)
     {
-        for (int i = 0; i < 0; i++)
+        for (int i = 0; i < characterSpawnPoints.Count; i++)
         {
             // so here we want to be able to loop over all of our character spawn points.
-            
 
             // for each spawn point, we want to use our Instantiate(Gameobject, Vector3, Quaternion); and pass in our dancer prefab, as well as the position and rotation of the spawn point
             // Once that does occur, we should store what was spawned into a gameobject for use later on.
-            GameObject clone = null;
+            GameObject clone = Instantiate(dancerPrefab, characterSpawnPoints[i].position, Quaternion.identity);
 
             SetUpDancer(clone);
         }
@@ -57,12 +56,12 @@ public class DanceTeam : MonoBehaviour
     private void SetUpDancer(GameObject dancer)
     {
         // After our dancer clone is spawned, we should use a getcomponent on the dancer and store a reference to the charactername class.
-        CharacterName clonedCharacterName = null;
+        CharacterName clonedCharacterName = dancer.GetComponent<CharacterName>();
         // with that referecne let's add it to our list of all character names.
         allCharacterNames.Add(clonedCharacterName);
 
         // here let's grab a reference to the character class that is on the cloned dancer, we probably want to use get component to grab it and store it. 
-        Character cloneCharacter = null;
+        Character cloneCharacter = dancer.GetComponent<Character>();
 
         // we grabbed their character class reference so we can tell them that this is our team.
         if (dancer != null)
@@ -73,6 +72,10 @@ public class DanceTeam : MonoBehaviour
         }  
 
         // finally let's call the AddNewDancer function and pass in our reference to our cloneCharcter but would be a good idea to check it's not null before using.
+        if (cloneCharacter != null) {
+            AddNewDancer(cloneCharacter);
+        }
+        
     }
 
     /// <summary>
@@ -81,7 +84,8 @@ public class DanceTeam : MonoBehaviour
     private void AddNewDancer(Character dancer)
     {
         // here we want to add the dancer coming in, into our active and all dancers lists.
-
+        allDancers.Add(dancer);
+        activeDancers.Add(dancer);
     }
 
     /// <summary>
@@ -91,6 +95,7 @@ public class DanceTeam : MonoBehaviour
     public void RemoveDancerFromActive(Character dancer)
     {
         // so here we have a dancer coming in, we should probably remove them from our active dancers list.
+        activeDancers.Remove(dancer);
     }
 
     #region No mods Required

@@ -20,7 +20,11 @@ public class DanceTeamInit : MonoBehaviour
     public void InitTeams()
     {
         // So for each team we have, we want to call two functions, one is SetTroupName and we need to pass in a team name; the other is SpawnTeam and need to pass in the dancer prefab
-        
+        teamA.SetTroupeName("Team 1");
+        teamB.SetTroupeName("Team 2");
+
+        teamA.SpawnTeam(dancerPrefab);
+        teamB.SpawnTeam(dancerPrefab);
     }
 
 }

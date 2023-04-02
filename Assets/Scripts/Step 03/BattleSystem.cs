@@ -35,8 +35,8 @@ public class BattleSystem : MonoBehaviour
             //You need to select two random or engineered random characters to fight...so one from team a and one from team b....
             // we could also get fancy here by using the simulate battle first if we wanted to to find characters for a closer chance of winning, but to start with let's just keep it simple and randomly select one.
 
-            Character teamAcharacter = null; // instead of null (nothing) we probably want a random charcter from each team.
-            Character teamBCharacter = null;
+            Character teamAcharacter = teamA.activeDancers[Random.Range(0, teamA.activeDancers.Count)]; // instead of null (nothing) we probably want a random charcter from each team.
+            Character teamBCharacter = teamB.activeDancers[Random.Range(0, teamB.activeDancers.Count)];
             fightManager.Fight(teamAcharacter, teamBCharacter);
         }
         else
@@ -45,6 +45,15 @@ public class BattleSystem : MonoBehaviour
             DanceTeam winner = null; // null is the same as saying nothing...often seen as a null reference in your logs.
 
             // We need to determine a winner...but how? what is our win condition for a team winning? and set our winner to be that team
+            if (teamA.activeDancers.Count > 0) {
+                winner = teamA;
+                winner.EnableWinEffects();
+                BattleLog.Log("The winner is: "+ winner.danceTeamName.ToString(), winner.teamColor);
+            } else if (teamB.activeDancers.Count > 0) {
+                winner = teamB;
+                winner.EnableWinEffects();
+                BattleLog.Log("The winner is: "+ winner.danceTeamName.ToString(), winner.teamColor);
+            }
 
             // here we are just checking we've decided which team has won, before we show the message and show some winning effects
             if (winner != null)
